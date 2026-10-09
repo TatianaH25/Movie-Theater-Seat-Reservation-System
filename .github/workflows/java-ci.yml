@@ -28,7 +28,7 @@ jobs:
       - name: Compile Java files
         run: |
           mkdir -p out
-          javac -cp junit-platform-console-standalone.jar -d out *.java
+          javac -cp junit-platform-console-standalone.jar -d out $(find . -maxdepth 1 -name "*.java" ! -name "module-info.java")
 
       - name: Run unit tests
         run: |
